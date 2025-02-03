@@ -11,7 +11,7 @@ void PackageManager::Package(const std::string& uprojectPath, const std::string&
         packageCommand = "";
     #elif __APPLE__
         // macOS - Utiliser RunUAT.sh
-        packageCommand = "./Engine/Build/BatchFiles/RunUAT.sh BuildCookRun -project=" + uprojectPath + " -noP4 -clientconfig=Development -serverconfig=Development -nocompile -nocompileeditor -installed -unrealexe=\"./Engine/Binaries/Mac/UE4Editor.app/Contents/MacOS/UE4Editor\" -utf8output -platform=Mac -build -cook -map=FirstPersonMap+FirstPersonMap -CookCultures=en -unversionedcookedcontent -stage -package -cmdline=\"FirstPersonMap -Messaging\" -addcmdline=\"-SessionId=2ACD82B0914C390A816F19A7AF795533 -SessionOwner='axelbrx' -SessionName='MacCook'\"";
+        packageCommand = "./Engine/Build/BatchFiles/RunUAT.sh BuildCookRun -project=" + uprojectPath + " -noP4 -clientconfig=Development -serverconfig=Development -nocompile -nocompileeditor -installed -unrealexe=\"./Engine/Binaries/Mac/UE4Editor.app/Contents/MacOS/UE4Editor\" -utf8output -platform=Mac -build -cook -CookCultures=en -unversionedcookedcontent -stage -package -cmdline=\"FirstPersonMap -Messaging\" -addcmdline=\"-SessionId=2ACD82B0914C390A816F19A7AF795533 -SessionOwner='axelbrx' -SessionName='MacCook'\"";
     #else
         #error "Plateforme non supportée"
     #endif
