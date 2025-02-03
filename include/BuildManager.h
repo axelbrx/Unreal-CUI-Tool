@@ -5,7 +5,8 @@
 
 class BuildManager {
 public:
-    static void Build(const std::string& uprojectPath);
+    // Fonction pour lancer la construction du projet Unreal
+    void Build(const std::string& uprojectPath);
 };
 
 #endif // BUILDMANAGER_H

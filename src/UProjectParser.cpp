@@ -16,14 +16,19 @@ void UProjectParser::ShowInfo(const std::string& uprojectPath) {
     if (projectJson.contains("Modules") && !projectJson["Modules"].empty()) {
         std::cout << "Nom du jeu : " << projectJson["Modules"][0]["Name"] << std::endl;
     } else {
-        std::cout << "Nom du jeu : Non trouvé" << std::endl;
+        std::cout << "Nom du jeu : Non spécifié" << std::endl;
     }
 
-    std::cout << "Version d'Unreal : ";
+    // Récupérer la version d'unreal. Si ressemblant à "{XXXX}" (entre crochets)," alors c'est un from source, indiquer. "From source", sinon la version.
     if (projectJson.contains("EngineAssociation")) {
-        std::cout << projectJson["EngineAssociation"] << std::endl;
+        std::string engineAssociation = projectJson["EngineAssociation"];
+        if (engineAssociation.find("{") != std::string::npos && engineAssociation.find("}") != std::string::npos) {
+            std::cout << "Version d'Unreal Engine : From source" << std::endl;
+        } else {
+            std::cout << "Version d'Unreal Engine : " << engineAssociation << std::endl;
+        }
     } else {
-        std::cout << "From Source" << std::endl;
+        std::cout << "Version d'Unreal Engine : Non trouvée" << std::endl;
     }
 
     std::cout << "Plugins utilisés :" << std::endl;

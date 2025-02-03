@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        std::cerr << "Usage : MyTool [CHEMIN DU UPROJECT] [commande] [options]" << std::endl;
+        std::cerr << "\033[1;33mUsage : MyTool <uprojectPath> <command (show-infos, build, package)> [packagePath]\033[0m" << std::endl;
         return 1;
     }
 
@@ -15,7 +15,9 @@ int main(int argc, char* argv[]) {
     if (command == "show-infos") {
         UProjectParser::ShowInfo(uprojectPath);
     } else if (command == "build") {
-        BuildManager::Build(uprojectPath);
+        // Créer une instance de BuildManager pour appeler Build()
+        BuildManager buildManager;
+        buildManager.Build(uprojectPath);  // Appel de la méthode non statique sur l'instance
     } else if (command == "package") {
         if (argc < 4) {
             std::cerr << "Veuillez fournir le chemin de sortie pour le package." << std::endl;
