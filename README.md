@@ -8,6 +8,8 @@ L'outil d'abord nommé "MyTool" (Unreal CUI Tool) est un outil de ligne de comma
 - Un compilateur C++ (comme g++)
 - Unreal Engine
 
+**Un build est déjà disponible dans le dossier `/build`
+
 ## Installation
 
 1. Clonez le dépôt :
